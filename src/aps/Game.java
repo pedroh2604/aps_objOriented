@@ -20,8 +20,6 @@ public class Game {
         
         Move[] moves = {leafStorm, magmaStorm, waterfall, shockWave, skyAttack};
         
-        System.out.println(leafStorm.getType());
-        
         // create pokemons 
         Pokemon raichu = PokemonFactory.createPokemon("raichu", moves);
         Pokemon heliolisk = PokemonFactory.createPokemon("heliolisk", moves);
