@@ -32,10 +32,9 @@ public class Game {
         Pokemon dewott = PokemonFactory.createPokemon("dewott", moves);
         Pokemon litten = PokemonFactory.createPokemon("litten", moves);
         Pokemon charizard = PokemonFactory.createPokemon("raichu", moves);
-
+        
+        Pokemon[] pokemons = {raichu, heliolisk, dartrix, togekiss, quilladin, blastoise, dewott, litten, charizard}; 
         // create players  
-
-        // coach - pokemon
 
         // initialize game
 

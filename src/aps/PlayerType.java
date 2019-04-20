@@ -6,11 +6,11 @@
 package aps;
 
 /**
- *
+ *        kkkkk pd pa
  * @author lab801
  */
 public enum PlayerType {
-    PERSON(1), OPPONENT(2), GIMNASIUMLEADER(3);
+    OPPONENT1(1), OPPONENT2(2), PERSON(3), GIMNASIUMLEADER(4);
     
     private final int value;
     private PlayerType(int value) {
