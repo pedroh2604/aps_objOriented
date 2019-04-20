@@ -12,15 +12,17 @@ package aps;
 public class Pokemon {
     private  PokemonAndMoveTypes type;
     private String name;
+    private int level;
     private int health;
     private int attackLevel;
     private int defenseLevel;
     private int speed;
     private Move moves[] = new Move[4];
 
-    public Pokemon(PokemonAndMoveTypes type, String name, int health, int attackLevel, int defenseLevel, int speed, Move[] moves) {
+    public Pokemon(PokemonAndMoveTypes type, String name,int level, int health, int attackLevel, int defenseLevel, int speed, Move[] moves) {
         this.type = type;
         this.name = name;
+        this.level = level;
         this.health = health;
         this.attackLevel = attackLevel;
         this.defenseLevel = defenseLevel;
@@ -44,6 +46,10 @@ public class Pokemon {
         return name;
     }
 
+    public int getLevel() {
+       return level;
+    }
+    
     public int getAttackLevel() {
         return attackLevel;
     }
@@ -59,8 +65,4 @@ public class Pokemon {
     public Move[] getMoves() {
         return moves;
     }
-    
-    
-    
-    
 }
