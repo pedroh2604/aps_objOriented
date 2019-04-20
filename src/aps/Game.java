@@ -39,9 +39,6 @@ public class Game {
         Player person = PlayerFactory.createPlayer(PlayerType.PERSON.getValue(), pokemons);
         Player gimnasiumLeader = PlayerFactory.createPlayer(PlayerType.GIMNASIUMLEADER.getValue(), pokemons);
         
-        // initialize game
-
-
         // select players
 
 
