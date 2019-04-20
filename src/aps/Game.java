@@ -17,17 +17,21 @@ public class Game {
         Move waterfall = MoveFactory.createMove("waterfall");
         Move shockWave = MoveFactory.createMove("shockWave");
         Move skyAttack = MoveFactory.createMove("skyAttack");
-
+        
+        Move[] moves = {leafStorm, magmaStorm, waterfall, shockWave, skyAttack};
+        
+        System.out.println(leafStorm.getType());
+        
         // create pokemons 
-        Pokemon raichu = PokemonFactory.createPokemon("raichu");
-        Pokemon heliolisk = PokemonFactory.createPokemon("heliolisk");
-        Pokemon dartrix = PokemonFactory.createPokemon("dartrix ");
-        Pokemon togekiss = PokemonFactory.createPokemon("togekiss");
-        Pokemon quilladin = PokemonFactory.createPokemon("quilladin");
-        Pokemon blastoise = PokemonFactory.createPokemon("blastoise");
-        Pokemon dewott = PokemonFactory.createPokemon("dewott");
-        Pokemon litten = PokemonFactory.createPokemon("litten");
-        Pokemon charizard = PokemonFactory.createPokemon("raichu");
+        Pokemon raichu = PokemonFactory.createPokemon("raichu", moves);
+        Pokemon heliolisk = PokemonFactory.createPokemon("heliolisk", moves);
+        Pokemon dartrix = PokemonFactory.createPokemon("dartrix ", moves);
+        Pokemon togekiss = PokemonFactory.createPokemon("togekiss", moves);
+        Pokemon quilladin = PokemonFactory.createPokemon("quilladin", moves);
+        Pokemon blastoise = PokemonFactory.createPokemon("blastoise", moves);
+        Pokemon dewott = PokemonFactory.createPokemon("dewott", moves);
+        Pokemon litten = PokemonFactory.createPokemon("litten", moves);
+        Pokemon charizard = PokemonFactory.createPokemon("raichu", moves);
 
         // create players  
 

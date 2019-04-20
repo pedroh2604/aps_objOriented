@@ -10,26 +10,35 @@ package aps;
  * @author Isabela
  */
 public class PokemonFactory {
-    public static Pokemon createPokemon(String name){
+    public static Pokemon createPokemon(String name, Move[] moves){
         switch(name){
             case "raichu":
-                return new Pokemon(PokemonAndMoveTypes.ELECTRIC, "Raichu", 60, 90, 55, 100);         
+                Move[] raichuMoves = {moves[0],moves[1],moves[2],moves[3]};
+                return new Pokemon(PokemonAndMoveTypes.ELECTRIC, "Raichu", 60, 90, 55, 100, raichuMoves);         
             case "heliolisk":
-                return new Pokemon(PokemonAndMoveTypes.ELECTRIC, "Heliolisk", 62, 55, 52, 100);                
+                Move[] helioliskMoves = {moves[1],moves[2],moves[3],moves[4]};
+                return new Pokemon(PokemonAndMoveTypes.ELECTRIC, "Heliolisk", 62, 55, 52, 100, helioliskMoves);                
             case "dartrix":
-                return new Pokemon(PokemonAndMoveTypes.FLYING, "Dartrix", 78, 75, 75, 52);               
+                Move[] dartrixMoves = {moves[2],moves[3],moves[4],moves[1]};
+                return new Pokemon(PokemonAndMoveTypes.FLYING, "Dartrix", 78, 75, 75, 52, dartrixMoves);               
             case "togekiss":
-                return new Pokemon(PokemonAndMoveTypes.FLYING, "Togekiss", 85, 50, 95, 80);                
+                Move[] togekissMoves = {moves[0],moves[1],moves[2],moves[3]};
+                return new Pokemon(PokemonAndMoveTypes.FLYING, "Togekiss", 85, 50, 95, 80, togekissMoves);                
             case "quilladin":
-                return new Pokemon(PokemonAndMoveTypes.GRASS, "Quilladin", 61, 78, 95, 57);                
+                Move[] quilladinMoves = {moves[0],moves[1],moves[2],moves[3]};
+                return new Pokemon(PokemonAndMoveTypes.GRASS, "Quilladin", 61, 78, 95, 57, quilladinMoves);                
             case "blastoise":
-                return new Pokemon(PokemonAndMoveTypes.WATER, "Blastoise", 79, 83, 100, 78);               
+                Move[] blastoiseMoves = {moves[0],moves[1],moves[2],moves[3]};
+                return new Pokemon(PokemonAndMoveTypes.WATER, "Blastoise", 79, 83, 100, 78, blastoiseMoves);               
             case "dewott":
-                return new Pokemon(PokemonAndMoveTypes.WATER, "Dewott", 75, 75, 60, 60);               
+                Move[] dewottMoves = {moves[0],moves[1],moves[2],moves[3]};
+                return new Pokemon(PokemonAndMoveTypes.WATER, "Dewott", 75, 75, 60, 60, dewottMoves);               
             case "litten":
-                return new Pokemon(PokemonAndMoveTypes.FIRE, "Litten", 45, 65, 40, 70);               
+                Move[] littenMoves = {moves[0],moves[1],moves[2],moves[3]};
+                return new Pokemon(PokemonAndMoveTypes.FIRE, "Litten", 45, 65, 40, 70, littenMoves);               
             case "charizard":
-                return new Pokemon(PokemonAndMoveTypes.FIRE, "Charizard", 78, 84, 78, 100);
+                Move[] charizardMoves = {moves[0],moves[1],moves[2],moves[3]};
+                return new Pokemon(PokemonAndMoveTypes.FIRE, "Charizard", 78, 84, 78, 100, charizardMoves);
                 
         }
         return null;

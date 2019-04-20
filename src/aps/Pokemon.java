@@ -18,13 +18,14 @@ public class Pokemon {
     private int speed;
     private Move moves[] = new Move[4];
 
-    public Pokemon(PokemonAndMoveTypes type, String name, int health, int attackLevel, int defenseLevel, int speed) {
+    public Pokemon(PokemonAndMoveTypes type, String name, int health, int attackLevel, int defenseLevel, int speed, Move[] moves) {
         this.type = type;
         this.name = name;
         this.health = health;
         this.attackLevel = attackLevel;
         this.defenseLevel = defenseLevel;
         this.speed = speed;
+        this.moves = moves;
     }
 
     public int getHealth() {
