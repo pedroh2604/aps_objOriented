@@ -1,7 +1,7 @@
 package aps;
 /**
  *
- * @author lab801
+ * @author pedro/isabela
  */
 public class APS {
 
@@ -9,33 +9,7 @@ public class APS {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Move leafStorm = MoveFactory.createMove("leafStorm");
-        Move magmaStorm = MoveFactory.createMove("magmaStorm");
-        Move waterfall = MoveFactory.createMove("waterfall");
-        Move shockWave = MoveFactory.createMove("shockWave");
-        Move skyAttack = MoveFactory.createMove("skyAttack");
-        
-        
-        Pokemon raichu = PokemonFactory.createPokemon("raichu");
-        Pokemon heliolisk = PokemonFactory.createPokemon("heliolisk");
-        Pokemon dartrix = PokemonFactory.createPokemon("dartrix ");
-        Pokemon togekiss = PokemonFactory.createPokemon("togekiss");
-        Pokemon quilladin = PokemonFactory.createPokemon("quilladin");
-        Pokemon blastoise = PokemonFactory.createPokemon("blastoise");
-        Pokemon dewott = PokemonFactory.createPokemon("dewott");
-        Pokemon litten = PokemonFactory.createPokemon("litten");
-        Pokemon charizard = PokemonFactory.createPokemon("raichu");
-        
-        System.out.println("aaaaaa");
-        System.out.println("bbbbbbbbb");
-        
-        
-      
-        //Player player1 = new Player(PlayerType.PERSON);
+        Game.startGame();
     }
     
 }
-
-/*
-
-*/
