@@ -34,10 +34,15 @@ public class Game {
         Pokemon charizard = PokemonFactory.createPokemon("raichu", moves);
         
         Pokemon[] pokemons = {raichu, heliolisk, dartrix, togekiss, quilladin, blastoise, dewott, litten, charizard}; 
+        
         // create players  
-
+        Player opponent1 = PlayerFactory.createPlayer(PlayerType.OPPONENT1.getValue(), pokemons);
+        Player opponent2 = PlayerFactory.createPlayer(PlayerType.OPPONENT2.getValue(), pokemons);
+        Player person = PlayerFactory.createPlayer(PlayerType.PERSON.getValue(), pokemons);
+        Player gimnasiumLeader = PlayerFactory.createPlayer(PlayerType.GIMNASIUMLEADER.getValue(), pokemons);
+        
         // initialize game
-
+//aaaa
 
         // select players
 
