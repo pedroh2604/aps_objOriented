@@ -26,6 +26,7 @@ public class APS {
         Pokemon litten = PokemonFactory.createPokemon("litten");
         Pokemon charizard = PokemonFactory.createPokemon("raichu");
         
+        System.out.println("aaaaaa");
         
         
       
