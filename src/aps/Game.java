@@ -6,6 +6,7 @@
 package aps;
 
 import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -82,12 +83,18 @@ public class Game {
         }
         
         
-        // battle 
-        
-        
-        
+        // battle
+        Pokemon[] tempPokemonsPlayer1 = player1.getPokemons();
+        Pokemon[] tempPokemonsPlayer2 = player2.getPokemons();
+        do {
+            PokemonBattle.pokemonBattle(player1, player2);
+            // remover o pokemon perdedor
+            Pokemon[] tempPokemons = {null, player1.getPokemons()[1]};
+            player1.setPokemons(tempPokemons);
             
-            
- 
+        } while((player1.getPokemons()[0] != null && player1.getPokemons()[1] != null) && player2.getPokemons()[0] != null && player2.getPokemons()[1] != null);
+        
+        player1.setPokemons(tempPokemonsPlayer1);
+        player2.setPokemons(tempPokemonsPlayer2);
     }
 }
