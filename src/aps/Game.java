@@ -70,7 +70,7 @@ public class Game {
         }
         
         //select pokemon order
-        System.out.println("Your Pokemons are: " + Arrays.toString(player1.getPokemons()));
+        System.out.println("Your Pokemons are: " + player1.getPokemons()[0].getName()+ " and " + player1.getPokemons()[1].getName());
         System.out.println("Which Pokemon do you want to play with first? 1 or 2?");
         int pokemonOrder = scanner.nextInt();
         if (pokemonOrder == 2){
@@ -86,15 +86,30 @@ public class Game {
         // battle
         Pokemon[] tempPokemonsPlayer1 = player1.getPokemons();
         Pokemon[] tempPokemonsPlayer2 = player2.getPokemons();
-        do {
-            PokemonBattle.pokemonBattle(player1, player2);
-            // remover o pokemon perdedor
-            Pokemon[] tempPokemons = {null, player1.getPokemons()[1]};
-            player1.setPokemons(tempPokemons);
+        
+        PokemonBattle.pokemonBattle(player1, player2);
+        /*
+        if(PokemonBattle.currentPokemon1Health > 0){
+        Pokemon[] tempPokemons = {null, player1.getPokemons()[1]};
+        player1.setPokemons(tempPokemons);
+        PokemonBattle.pokemonBattle(player1, player2);
+        }
+        
+        
+        
             
-        } while((player1.getPokemons()[0] != null && player1.getPokemons()[1] != null) && player2.getPokemons()[0] != null && player2.getPokemons()[1] != null);
+            Pokemon[] tempPokemons = {null, player2.getPokemons()[1]};
+            player2.setPokemons(tempPokemons);
+            PokemonBattle.pokemonBattle(player1, player2);
+        
+        
+       
+      
+            
+            
+        
         
         player1.setPokemons(tempPokemonsPlayer1);
-        player2.setPokemons(tempPokemonsPlayer2);
+        player2.setPokemons(tempPokemonsPlayer2);*/
     }
 }
