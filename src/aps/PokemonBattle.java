@@ -17,10 +17,13 @@ public class PokemonBattle {
         double currentPokemon1Health = -9999;
         double currentPokemon2Health = -9999;
         do {
-            Pokemon currentPokemonPlayer1 = player1.getPokemons()[0] != null ? player1.getPokemons()[0] : player1.getPokemons()[1];
             int currentPokemonPlayer1Index = player1.getPokemons()[0] != null ? 0 : 1;
+            Pokemon currentPokemonPlayer1 = player1.getPokemons()[currentPokemonPlayer1Index];
+            
+            System.out.println("index player1 " + currentPokemonPlayer1Index);
             Pokemon currentPokemonPlayer2 = player2.getPokemons()[0] != null ? player2.getPokemons()[0] : player2.getPokemons()[1];
             int currentPokemonPlayer2Index = player2.getPokemons()[0] != null ? 0 : 1;
+            System.out.println("index player2 " + currentPokemonPlayer2Index);
             currentPokemon1Health = currentPokemon1Health > 0 ? currentPokemon1Health : currentPokemonPlayer1.getHealth();
             currentPokemon2Health = currentPokemon2Health > 0 ? currentPokemon2Health : currentPokemonPlayer2.getHealth();
             int round = 1;
@@ -86,11 +89,9 @@ public class PokemonBattle {
                     System.out.println("health" + currentPokemon2Health);
                     if (currentPokemon2Health > 0){
                        modifier = currentPokemonPlayer2.getType().getValue() > currentPokemonPlayer1.getType().getValue() ? 0.5 : 1.5; 
-                       damage = ((currentPokemonPlayer2.getAttackLevel() + currentPlayer2Move.getPower()) - currentPokemonPlayer1.getDefenseLevel()) * modifier;
+                       damage = ( currentPokemonPlayer2.getAttackLevel() + currentPlayer2Move.getPower() - currentPokemonPlayer1.getDefenseLevel()) * modifier;
                        damage = currentPokemonPlayer2.getLevel() == 75 ? damage * 1.25 : damage; 
-                       System.out.println("damage" + damage);
                        currentPokemon1Health -= damage;
-                        System.out.println("health freaking blastoise damn " + currentPokemon1Health);
                        if (currentPokemon1Health <= 0) {
                            UpdatePlayerPokemons.updatePlayerPokemons(player1, currentPokemonPlayer1Index);
                        } 

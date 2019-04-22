@@ -91,10 +91,10 @@ public class Game {
         // battle
         PokemonBattle.pokemonBattle(player1, player2);
         
-        if (player1.getPokemons()[0] != null && player1.getPokemons()[1] != null) {
-            System.out.println("Player 2 won, congrats");
-        } else if ((player2.getPokemons()[0] != null && player2.getPokemons()[1] != null)) {
+        if (player1.getPokemons()[0] != null || player1.getPokemons()[1] != null) {
             System.out.println("Player 1 won, congrats");
+        } else if ((player2.getPokemons()[0] != null || player2.getPokemons()[1] != null)) {
+            System.out.println("Player 2 won, congrats");
         }
         
         player1.setPokemons(tempPokemonsPlayer1);
