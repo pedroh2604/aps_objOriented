@@ -69,47 +69,35 @@ public class Game {
                 player2 = opponent1; 
         }
         
+        // makes sure the pokemons will be the same after the battle
+        Pokemon[] tempPokemonsPlayer1 = player1.getPokemons();
+        Pokemon[] tempPokemonsPlayer2 = player2.getPokemons();
+        
         //select pokemon order
         System.out.println("Your Pokemons are: " + player1.getPokemons()[0].getName()+ " and " + player1.getPokemons()[1].getName());
         System.out.println("Which Pokemon do you want to play with first? 1 or 2?");
         int pokemonOrder = scanner.nextInt();
-        if (pokemonOrder == 2){
-            Pokemon[] array = player1.getPokemons();
-            for (int i = 0; i < array.length / 2; i++) {
-                Pokemon temp = array[i];
-                array[i] = array[array.length - 1 - i];
-                array[array.length - 1 - i] = temp;
-            } 
-        }
         
+        if (pokemonOrder == 2){
+            Pokemon[] invertedPokemons = player1.getPokemons();
+            for (int i = 0; i < invertedPokemons.length / 2; i++) {
+                Pokemon temp = invertedPokemons[i];
+                invertedPokemons[i] = invertedPokemons[invertedPokemons.length - 1 - i];
+                invertedPokemons[invertedPokemons.length - 1 - i] = temp;
+            }
+            player1.setPokemons(invertedPokemons);
+        }
         
         // battle
-        Pokemon[] tempPokemonsPlayer1 = player1.getPokemons();
-        Pokemon[] tempPokemonsPlayer2 = player2.getPokemons();
+        PokemonBattle.pokemonBattle(player1, player2);
         
-        PokemonBattle.pokemonBattle(player1, player2);
-        /*
-        if(PokemonBattle.currentPokemon1Health > 0){
-        Pokemon[] tempPokemons = {null, player1.getPokemons()[1]};
-        player1.setPokemons(tempPokemons);
-        PokemonBattle.pokemonBattle(player1, player2);
+        if (player1.getPokemons()[0] != null && player1.getPokemons()[1] != null) {
+            System.out.println("Player 2 won, congrats");
+        } else if ((player2.getPokemons()[0] != null && player2.getPokemons()[1] != null)) {
+            System.out.println("Player 1 won, congrats");
         }
         
-        
-        
-            
-            Pokemon[] tempPokemons = {null, player2.getPokemons()[1]};
-            player2.setPokemons(tempPokemons);
-            PokemonBattle.pokemonBattle(player1, player2);
-        
-        
-       
-      
-            
-            
-        
-        
         player1.setPokemons(tempPokemonsPlayer1);
-        player2.setPokemons(tempPokemonsPlayer2);*/
+        player2.setPokemons(tempPokemonsPlayer2);
     }
 }

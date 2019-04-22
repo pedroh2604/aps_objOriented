@@ -29,6 +29,10 @@ public class Player {
     public void setPokemons(Pokemon[] pokemons) {
         this.pokemons = pokemons;
     }
-    
+
+    @Override
+    public String toString() {
+        return "Player{" + "pokemons=" + pokemons + '}';
+    }
     
 }

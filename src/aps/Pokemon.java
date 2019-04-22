@@ -13,9 +13,9 @@ public class Pokemon {
     private  PokemonAndMoveTypes type;
     private String name;
     private int level;
-    private int health;
-    private int attackLevel;
-    private int defenseLevel;
+    private double health;
+    private float attackLevel;
+    private float defenseLevel;
     private int speed;
     private Move moves[] = new Move[4];
 
@@ -30,12 +30,8 @@ public class Pokemon {
         this.moves = moves;
     }
 
-    public int getHealth() {
+    public double getHealth() {
         return health;
-    }
-
-    public void setHealth(int health) {
-        this.health = health;
     }
 
     public PokemonAndMoveTypes getType() {
@@ -50,11 +46,11 @@ public class Pokemon {
        return level;
     }
     
-    public int getAttackLevel() {
+    public float getAttackLevel() {
         return attackLevel;
     }
 
-    public int getDefenseLevel() {
+    public float getDefenseLevel() {
         return defenseLevel;
     }
 
@@ -65,4 +61,11 @@ public class Pokemon {
     public Move[] getMoves() {
         return moves;
     }
+
+    @Override
+    public String toString() {
+        return "Pokemon{" + "type=" + type + ", name=" + name + ", level=" + level + ", health=" + health + ", attackLevel=" + attackLevel + ", defenseLevel=" + defenseLevel + ", speed=" + speed + ", moves=" + moves + '}';
+    }
+    
+    
 }
