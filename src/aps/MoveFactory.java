@@ -18,7 +18,7 @@ public class MoveFactory {
             case "magmaStorm": 
                 return new Move("Magma Storm", 30, PokemonAndMoveTypes.FIRE, 8);
             case "waterfall": 
-                return new Move("Waterfall", 20, PokemonAndMoveTypes.WATER, 7);
+                return new Move("Waterfall", 20, PokemonAndMoveTypes.WATER, 1);
             case "shockWave":
                 return new Move("Shock Wave", 35, PokemonAndMoveTypes.ELECTRIC, 6);
             case "skyAttack": 

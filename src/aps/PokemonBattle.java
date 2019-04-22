@@ -67,7 +67,9 @@ public class PokemonBattle {
                 moveIndex = scanner.nextInt() - 1;
                 moveIndex = (moveIndex < 0 || moveIndex >= 5) ? moveIndex - 1 : moveIndex; 
                 currentPlayer1Move = currentPokemonPlayer1.getMoves()[moveIndex];
-
+                //int tempPlayer1MoveQtyUse = currentPlayer1Move.getQtyUse();
+                //currentPlayer1Move.setQtyUse(currentPlayer1Move.getQtyUse() - 1);
+                        
                 Move currentPlayer2Move;
                 do {
                     currentPlayer2Move = currentPokemonPlayer2.getMoves()[rand.nextInt(4)];
@@ -81,19 +83,20 @@ public class PokemonBattle {
                 double damage;
 
                 if (currentPokemonPlayer1.getSpeed() > currentPokemonPlayer2.getSpeed() || randPlayer == 0) { // player 1 attacks first
-                    modifier = currentPokemonPlayer1.getType().getValue() > currentPokemonPlayer2.getType().getValue() ? 0.5 : 1.5; 
+                    modifier = currentPlayer1Move.getType().getValue() > currentPokemonPlayer2.getType().getValue() ? 1.5 : 0.5; 
                     damage = ((currentPokemonPlayer1.getAttackLevel() + currentPlayer1Move.getPower()) - currentPokemonPlayer2.getDefenseLevel()) * modifier;
                     currentPokemon2Health -= damage;
 
                     System.out.println("health" + currentPokemon1Health);
                     System.out.println("health" + currentPokemon2Health);
                     if (currentPokemon2Health > 0){
-                       modifier = currentPokemonPlayer2.getType().getValue() > currentPokemonPlayer1.getType().getValue() ? 0.5 : 1.5; 
+                       modifier = currentPlayer2Move.getType().getValue() > currentPokemonPlayer1.getType().getValue() ? 1.5 : 0.5; 
                        damage = ( currentPokemonPlayer2.getAttackLevel() + currentPlayer2Move.getPower() - currentPokemonPlayer1.getDefenseLevel()) * modifier;
                        damage = currentPokemonPlayer2.getLevel() == 75 ? damage * 1.25 : damage; 
                        currentPokemon1Health -= damage;
                        if (currentPokemon1Health <= 0) {
                            UpdatePlayerPokemons.updatePlayerPokemons(player1, currentPokemonPlayer1Index);
+                           //currentPlayer1Move.setQtyUse(tempPlayer1MoveQtyUse);
                        } 
 
                     }else{
@@ -101,16 +104,16 @@ public class PokemonBattle {
                     }
 
                 } else if (currentPokemonPlayer1.getSpeed() < currentPokemonPlayer2.getSpeed() || randPlayer == 1) { // player 2 attacks first
-                    modifier = currentPokemonPlayer2.getType().getValue() > currentPokemonPlayer1.getType().getValue() ? 0.5 : 1.5; 
+                    modifier = currentPlayer2Move.getType().getValue() > currentPokemonPlayer1.getType().getValue() ? 1.5 : 0.5; 
                     damage = ((currentPokemonPlayer2.getAttackLevel() + currentPlayer2Move.getPower()) - currentPokemonPlayer1.getDefenseLevel()) * modifier;
                     damage = currentPokemonPlayer2.getLevel() == 75 ? damage * 1.25 : damage;
                     currentPokemon1Health -= damage;
 
                     System.out.println("health" + currentPokemon1Health);
-                    System.out.println("health" + currentPokemon2Health);
+                    System.out.println("health" + currentPokemon2Health + "\n");
 
                     if(currentPokemon1Health > 0){
-                       modifier = currentPokemonPlayer1.getType().getValue() > currentPokemonPlayer2.getType().getValue() ? 0.5 : 1.5; 
+                       modifier = currentPlayer1Move.getType().getValue() > currentPokemonPlayer2.getType().getValue() ? 1.5 : 0.5; 
                        damage = ((currentPokemonPlayer1.getAttackLevel() + currentPlayer1Move.getPower()) - currentPokemonPlayer2.getDefenseLevel()) * modifier;
                        currentPokemon2Health -= damage; 
 
@@ -120,6 +123,7 @@ public class PokemonBattle {
 
                     }else{
                         UpdatePlayerPokemons.updatePlayerPokemons(player1, currentPokemonPlayer1Index);
+                        //currentPlayer1Move.setQtyUse(tempPlayer1MoveQtyUse);
                     }
                 }
 
