@@ -19,11 +19,8 @@ public class PokemonBattle {
         do {
             int currentPokemonPlayer1Index = player1.getPokemons()[0] != null ? 0 : 1;
             Pokemon currentPokemonPlayer1 = player1.getPokemons()[currentPokemonPlayer1Index];
-            
-            System.out.println("index player1 " + currentPokemonPlayer1Index);
             Pokemon currentPokemonPlayer2 = player2.getPokemons()[0] != null ? player2.getPokemons()[0] : player2.getPokemons()[1];
             int currentPokemonPlayer2Index = player2.getPokemons()[0] != null ? 0 : 1;
-            System.out.println("index player2 " + currentPokemonPlayer2Index);
             currentPokemon1Health = currentPokemon1Health > 0 ? currentPokemon1Health : currentPokemonPlayer1.getHealth();
             currentPokemon2Health = currentPokemon2Health > 0 ? currentPokemon2Health : currentPokemonPlayer2.getHealth();
             int round = 1;
