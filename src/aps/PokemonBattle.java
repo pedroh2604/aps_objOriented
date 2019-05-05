@@ -54,57 +54,67 @@ public class PokemonBattle {
                 System.out.println(currentPokemonPlayer2.getName() + " (LV" + currentPokemonPlayer2.getLevel() + ") " + currentPokemon2Health + "/" + currentPokemonPlayer2.getHealth());
                 System.out.println("Which attack your " + currentPokemonPlayer1.getName() + " will be using?");
                 
-                for (int i = 0; i < 4; i++) {
-                    if (currentPokemonPlayer1.getMoves()[i].getQtyUse() > 0) {
-                            System.out.println("(" + (i + 1) + ") " + currentPokemonPlayer1.getMoves()[i].getType());
-                    } 
-                }
-
                 Scanner scanner = new Scanner(System.in);
                 int moveIndex;
                 Move currentPlayer1Move;
-
-                moveIndex = scanner.nextInt() - 1;
-                moveIndex = (moveIndex < 0 || moveIndex >= 5) ? moveIndex - 1 : moveIndex; 
+                
+                do {
+                    for (int i = 0; i < 4; i++) {
+                        if (currentPokemonPlayer1.getMoves()[i].getQtyUse() > 0) {
+                                System.out.println("(" + (i + 1) + ") " + currentPokemonPlayer1.getMoves()[i].getType());
+                        } 
+                    }
+                    moveIndex = scanner.nextInt() - 1;
+                    if(moveIndex < 0 || moveIndex >= 4) {
+                        System.out.println("Invalid move :( ");
+                    } else if(currentPokemonPlayer1.getMoves()[moveIndex].getQtyUse() <= 0) {
+                        System.out.println("Invalid move :( ");
+                    }
+                } while (moveIndex < 0 || moveIndex >= 4 || currentPokemonPlayer1.getMoves()[moveIndex].getQtyUse() <= 0);
+                
                 currentPlayer1Move = currentPokemonPlayer1.getMoves()[moveIndex];
-                //int tempPlayer1MoveQtyUse = currentPlayer1Move.getQtyUse();
-                //currentPlayer1Move.setQtyUse(currentPlayer1Move.getQtyUse() - 1);
+                int tempPlayer1MoveQtyUse = currentPlayer1Move.getQtyUse();
+                currentPlayer1Move.setQtyUse(currentPlayer1Move.getQtyUse() - 1);
                         
                 Move currentPlayer2Move;
                 do {
                     currentPlayer2Move = currentPokemonPlayer2.getMoves()[rand.nextInt(4)];
-                } while(currentPlayer2Move.getQtyUse() <= 0);
+                } while(currentPlayer2Move.getQtyUse() <= 0 || (player2.getType().getValue() == 3 && currentPlayer2Move.getType().getValue() < currentPokemonPlayer1.getType().getValue()));
 
-                int randPlayer = 9999;
+                int randPlayer = 1;
                 if (currentPokemonPlayer1.getSpeed() == currentPokemonPlayer2.getSpeed()) {
                         randPlayer = rand.nextInt(2);
                 }
-                double modifier;
+                double modifier = 1;
                 double damage;
 
                 if (currentPokemonPlayer1.getSpeed() > currentPokemonPlayer2.getSpeed() || randPlayer == 0) { // player 1 attacks first
-                    modifier = currentPlayer1Move.getType().getValue() > currentPokemonPlayer2.getType().getValue() ? 1.5 : 0.5; 
+                    if (currentPlayer1Move.getType().getValue() != currentPokemonPlayer2.getType().getValue()) {
+                        modifier = currentPlayer1Move.getType().getValue() > currentPokemonPlayer2.getType().getValue() ? 1.5 : 0.5; 
+                    }
                     damage = ((currentPokemonPlayer1.getAttackLevel() + currentPlayer1Move.getPower()) - currentPokemonPlayer2.getDefenseLevel()) * modifier;
                     currentPokemon2Health -= damage;
 
                     System.out.println("health" + currentPokemon1Health);
                     System.out.println("health" + currentPokemon2Health);
                     if (currentPokemon2Health > 0){
-                       modifier = currentPlayer2Move.getType().getValue() > currentPokemonPlayer1.getType().getValue() ? 1.5 : 0.5; 
-                       damage = ( currentPokemonPlayer2.getAttackLevel() + currentPlayer2Move.getPower() - currentPokemonPlayer1.getDefenseLevel()) * modifier;
-                       damage = currentPokemonPlayer2.getLevel() == 75 ? damage * 1.25 : damage; 
-                       currentPokemon1Health -= damage;
-                       if (currentPokemon1Health <= 0) {
-                           UpdatePlayerPokemons.updatePlayerPokemons(player1, currentPokemonPlayer1Index);
-                           //currentPlayer1Move.setQtyUse(tempPlayer1MoveQtyUse);
-                       } 
-
+                        if (currentPlayer2Move.getType().getValue() != currentPokemonPlayer1.getType().getValue()) {
+                            modifier = currentPlayer2Move.getType().getValue() > currentPokemonPlayer1.getType().getValue() ? 1.5 : 0.5; 
+                        }
+                        damage = ( currentPokemonPlayer2.getAttackLevel() + currentPlayer2Move.getPower() - currentPokemonPlayer1.getDefenseLevel()) * modifier;
+                        damage = currentPokemonPlayer2.getLevel() == 75 ? damage * 1.25 : damage; 
+                        currentPokemon1Health -= damage;
+                        if (currentPokemon1Health <= 0) {
+                            UpdatePlayerPokemons.updatePlayerPokemons(player1, currentPokemonPlayer1Index);
+                            currentPlayer1Move.setQtyUse(tempPlayer1MoveQtyUse);
+                        } 
                     }else{
                         UpdatePlayerPokemons.updatePlayerPokemons(player2, currentPokemonPlayer2Index);
                     }
-
                 } else if (currentPokemonPlayer1.getSpeed() < currentPokemonPlayer2.getSpeed() || randPlayer == 1) { // player 2 attacks first
-                    modifier = currentPlayer2Move.getType().getValue() > currentPokemonPlayer1.getType().getValue() ? 1.5 : 0.5; 
+                    if (currentPlayer2Move.getType().getValue() != currentPokemonPlayer1.getType().getValue()) {
+                        modifier = currentPlayer2Move.getType().getValue() > currentPokemonPlayer1.getType().getValue() ? 1.5 : 0.5; 
+                    }
                     damage = ((currentPokemonPlayer2.getAttackLevel() + currentPlayer2Move.getPower()) - currentPokemonPlayer1.getDefenseLevel()) * modifier;
                     damage = currentPokemonPlayer2.getLevel() == 75 ? damage * 1.25 : damage;
                     currentPokemon1Health -= damage;
@@ -113,7 +123,9 @@ public class PokemonBattle {
                     System.out.println("health" + currentPokemon2Health + "\n");
 
                     if(currentPokemon1Health > 0){
-                       modifier = currentPlayer1Move.getType().getValue() > currentPokemonPlayer2.getType().getValue() ? 1.5 : 0.5; 
+                        if (currentPlayer1Move.getType().getValue() != currentPokemonPlayer2.getType().getValue()) {
+                            modifier = currentPlayer1Move.getType().getValue() > currentPokemonPlayer2.getType().getValue() ? 1.5 : 0.5; 
+                        }
                        damage = ((currentPokemonPlayer1.getAttackLevel() + currentPlayer1Move.getPower()) - currentPokemonPlayer2.getDefenseLevel()) * modifier;
                        currentPokemon2Health -= damage; 
 
@@ -123,7 +135,7 @@ public class PokemonBattle {
 
                     }else{
                         UpdatePlayerPokemons.updatePlayerPokemons(player1, currentPokemonPlayer1Index);
-                        //currentPlayer1Move.setQtyUse(tempPlayer1MoveQtyUse);
+                        currentPlayer1Move.setQtyUse(tempPlayer1MoveQtyUse);
                     }
                 }
 

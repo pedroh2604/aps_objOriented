@@ -23,17 +23,20 @@ public class Game {
         Move skyAttack = MoveFactory.createMove("skyAttack");
         
         Move[] moves = {leafStorm, magmaStorm, waterfall, shockWave, skyAttack};
-        
+       
         // create pokemons 
-        Pokemon raichu = PokemonFactory.createPokemon("raichu", moves.clone());
-        Pokemon heliolisk = PokemonFactory.createPokemon("heliolisk", moves.clone());
-        Pokemon dartrix = PokemonFactory.createPokemon("dartrix ", moves.clone());
-        Pokemon togekiss = PokemonFactory.createPokemon("togekiss", moves.clone());
-        Pokemon quilladin = PokemonFactory.createPokemon("quilladin", moves.clone());
-        Pokemon blastoise = PokemonFactory.createPokemon("blastoise", moves.clone());
-        Pokemon dewott = PokemonFactory.createPokemon("dewott", moves.clone());
-        Pokemon litten = PokemonFactory.createPokemon("litten", moves.clone());
-        Pokemon charizard = PokemonFactory.createPokemon("raichu", moves.clone());
+        Pokemon raichu = PokemonFactory.createPokemon("raichu", Arrays.stream(moves).map(currentMove -> currentMove == null ? null : new Move(currentMove)).toArray(Move[]::new));
+        Pokemon heliolisk = PokemonFactory.createPokemon("heliolisk", Arrays.stream(moves).map(currentMove -> currentMove == null ? null : new Move(currentMove)).toArray(Move[]::new));
+        Pokemon dartrix = PokemonFactory.createPokemon("dartrix ", Arrays.stream(moves).map(currentMove -> currentMove == null ? null : new Move(currentMove)).toArray(Move[]::new));
+        Pokemon togekiss = PokemonFactory.createPokemon("togekiss", Arrays.stream(moves).map(currentMove -> currentMove == null ? null : new Move(currentMove)).toArray(Move[]::new));
+        Pokemon quilladin = PokemonFactory.createPokemon("quilladin", Arrays.stream(moves).map(currentMove -> currentMove == null ? null : new Move(currentMove)).toArray(Move[]::new));
+        Pokemon blastoise = PokemonFactory.createPokemon("blastoise", Arrays.stream(moves).map(currentMove -> currentMove == null ? null : new Move(currentMove)).toArray(Move[]::new));
+        Pokemon dewott = PokemonFactory.createPokemon("dewott", Arrays.stream(moves).map(currentMove -> currentMove == null ? null : new Move(currentMove)).toArray(Move[]::new));
+        Pokemon litten = PokemonFactory.createPokemon("litten", Arrays.stream(moves).map(currentMove -> currentMove == null ? null : new Move(currentMove)).toArray(Move[]::new));
+        Pokemon charizard = PokemonFactory.createPokemon("raichu", Arrays.stream(moves).map(currentMove -> currentMove == null ? null : new Move(currentMove)).toArray(Move[]::new));
+        
+        System.out.println(raichu.getMoves()[1]);
+        System.out.println(heliolisk.getMoves()[0]);
         
         Pokemon[] pokemons = {raichu, heliolisk, dartrix, togekiss, quilladin, blastoise, dewott, litten, charizard}; 
         
@@ -92,9 +95,9 @@ public class Game {
         PokemonBattle.pokemonBattle(player1, player2);
         
         if (player1.getPokemons()[0] != null || player1.getPokemons()[1] != null) {
-            System.out.println("Player 1 won, congrats");
+            System.out.println("You won, congrats");
         } else if ((player2.getPokemons()[0] != null || player2.getPokemons()[1] != null)) {
-            System.out.println("Player 2 won, congrats");
+            System.out.println("You lost :( ");
         }
         
         player1.setPokemons(tempPokemonsPlayer1);

@@ -9,7 +9,7 @@ package aps;
  *
  * @author lab801
  */
-public class Move implements Cloneable{
+public class Move {
     private String name;
     private int power;
     private PokemonAndMoveTypes type;
@@ -20,6 +20,13 @@ public class Move implements Cloneable{
         this.power = power;
         this.type = type;
         this.qtyUse = qtyUse;
+    }
+    
+    public Move(Move move) {
+        this.name = move.name;
+        this.power = move.power;
+        this.type = move.type;
+        this.qtyUse = move.qtyUse;
     }
 
     public int getQtyUse() {
@@ -41,9 +48,4 @@ public class Move implements Cloneable{
     public PokemonAndMoveTypes getType() {
         return type;
     }
-    
-    public Object clone()throws CloneNotSupportedException{  
-        return super.clone();  
-    }  
-    
 }
