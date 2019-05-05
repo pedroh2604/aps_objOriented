@@ -1,13 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package aps;
-
 /**
  *
- * @author lab801
+ * @author Isabela Canelas Ett, RA: 21058253 / Pedro Henrique de Carvalho Silva, RA: 21201325
  */
 public enum PokemonAndMoveTypes {
     ELECTRIC(5), FLYING(4), GRASS(3), WATER(2), FIRE(1);

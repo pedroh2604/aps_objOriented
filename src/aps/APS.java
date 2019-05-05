@@ -1,13 +1,9 @@
 package aps;
 /**
  *
- * @author pedro/isabela
+ * @author Isabela Canelas Ett, RA: 21058253 / Pedro Henrique de Carvalho Silva, RA: 21201325
  */
 public class APS {
-
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         Game.startGame();
     }

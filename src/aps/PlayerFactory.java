@@ -1,13 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package aps;
-
 /**
  *
- * @author Isabela
+ * @author Isabela Canelas Ett, RA: 21058253 / Pedro Henrique de Carvalho Silva, RA: 21201325
  */
 public class PlayerFactory {
     public static Player createPlayer(int playerType, Pokemon[] pokemons){

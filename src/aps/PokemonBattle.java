@@ -1,16 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package aps;
 
 import java.util.Random;
 import java.util.Scanner;
-
 /**
  *
- * @author pedro
+ * @author Isabela Canelas Ett, RA: 21058253 / Pedro Henrique de Carvalho Silva, RA: 21201325
  */
 public class PokemonBattle {
     public static void pokemonBattle(Player player1, Player player2) {
