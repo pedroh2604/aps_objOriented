@@ -46,8 +46,8 @@ public class PokemonBattle {
             }
 
             do {
-                System.out.println("Player 1 has " + player1QtyPokemon + " pokemons");
-                System.out.println("Player 2 has " + player2QtyPokemon + " pokemons");
+                System.out.println("You have " + player1QtyPokemon + " pokemons");
+                System.out.println(player2.getType().toString().substring(0, 1) + player2.getType().toString().substring(1).toLowerCase() +" has " + player2QtyPokemon + " pokemons");
                 System.out.println("Round: " + round);
                 System.out.println(currentPokemonPlayer1.getName() + " (LV" + currentPokemonPlayer1.getLevel() + ") " + currentPokemon1Health + "/" + currentPokemonPlayer1.getHealth());
                 System.out.println("vs");
@@ -94,9 +94,6 @@ public class PokemonBattle {
                     }
                     damage = ((currentPokemonPlayer1.getAttackLevel() + currentPlayer1Move.getPower()) - currentPokemonPlayer2.getDefenseLevel()) * modifier;
                     currentPokemon2Health -= damage;
-
-                    System.out.println("health" + currentPokemon1Health);
-                    System.out.println("health" + currentPokemon2Health);
                     if (currentPokemon2Health > 0){
                         if (currentPlayer2Move.getType().getValue() != currentPokemonPlayer1.getType().getValue()) {
                             modifier = currentPlayer2Move.getType().getValue() > currentPokemonPlayer1.getType().getValue() ? 1.5 : 0.5; 
@@ -118,9 +115,6 @@ public class PokemonBattle {
                     damage = ((currentPokemonPlayer2.getAttackLevel() + currentPlayer2Move.getPower()) - currentPokemonPlayer1.getDefenseLevel()) * modifier;
                     damage = currentPokemonPlayer2.getLevel() == 75 ? damage * 1.25 : damage;
                     currentPokemon1Health -= damage;
-
-                    System.out.println("health" + currentPokemon1Health);
-                    System.out.println("health" + currentPokemon2Health + "\n");
 
                     if(currentPokemon1Health > 0){
                         if (currentPlayer1Move.getType().getValue() != currentPokemonPlayer2.getType().getValue()) {

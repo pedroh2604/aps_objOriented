@@ -33,12 +33,8 @@ public class Game {
         Pokemon blastoise = PokemonFactory.createPokemon("blastoise", Arrays.stream(moves).map(currentMove -> currentMove == null ? null : new Move(currentMove)).toArray(Move[]::new));
         Pokemon dewott = PokemonFactory.createPokemon("dewott", Arrays.stream(moves).map(currentMove -> currentMove == null ? null : new Move(currentMove)).toArray(Move[]::new));
         Pokemon litten = PokemonFactory.createPokemon("litten", Arrays.stream(moves).map(currentMove -> currentMove == null ? null : new Move(currentMove)).toArray(Move[]::new));
-        Pokemon charizard = PokemonFactory.createPokemon("raichu", Arrays.stream(moves).map(currentMove -> currentMove == null ? null : new Move(currentMove)).toArray(Move[]::new));
-        
-        System.out.println(raichu.getMoves()[1]);
-        System.out.println(heliolisk.getMoves()[0]);
-        
-        Pokemon[] pokemons = {raichu, heliolisk, dartrix, togekiss, quilladin, blastoise, dewott, litten, charizard}; 
+
+        Pokemon[] pokemons = {raichu, heliolisk, dartrix, togekiss, quilladin, blastoise, dewott, litten}; 
         
         // create players  
         Player opponent1 = PlayerFactory.createPlayer(PlayerType.OPPONENT1.getValue(), pokemons);
