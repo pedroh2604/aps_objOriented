@@ -42,18 +42,24 @@ public class Game {
         Player gimnasiumLeader = PlayerFactory.createPlayer(PlayerType.GIMNASIUMLEADER.getValue(), pokemons);
         Player player1 = PlayerFactory.createPlayer(PlayerType.PERSON.getValue(), pokemons);
         
-        
-        // select players
-        System.out.println("Who do you want to battle with?");
-        System.out.println("1: Opponent 1");
-        System.out.println("2: Opponent 2");
-        System.out.println("3: Gimnasium Leader");
-        
         Scanner scanner = new Scanner(System.in);
-        int opponentChoice = scanner.nextInt();
+        int opponentChoice;
+        
+        do {
+            // select players
+            System.out.println("Who do you want to battle with?");
+            System.out.println("1: Opponent 1");
+            System.out.println("2: Opponent 2");
+            System.out.println("3: Gimnasium Leader");
+            
+            opponentChoice = scanner.nextInt();
+            
+            if(opponentChoice < 1 || opponentChoice > 3) {
+                System.out.println("Invalid option");
+            }
+        } while (opponentChoice < 1 || opponentChoice > 3);
+
         Player player2;
-        
-        
         switch(opponentChoice){
             case 1:
                player2 = opponent1; 
@@ -73,9 +79,18 @@ public class Game {
         Pokemon[] tempPokemonsPlayer2 = player2.getPokemons();
         
         //select pokemon order
-        System.out.println("Your Pokemons are: " + player1.getPokemons()[0].getName()+ " and " + player1.getPokemons()[1].getName());
-        System.out.println("Which Pokemon do you want to play with first? 1 or 2?");
-        int pokemonOrder = scanner.nextInt();
+        int pokemonOrder;
+        do {
+            System.out.println("Your Pokemons are: " + player1.getPokemons()[0].getName()+ " and " + player1.getPokemons()[1].getName());
+            System.out.println("Which Pokemon do you want to play with first? Enter 1 for " + player1.getPokemons()[0].getName() + " or 2 for " + player1.getPokemons()[1].getName());
+            pokemonOrder = scanner.nextInt();
+            if (pokemonOrder < 1 || pokemonOrder > 2) {
+                System.out.println("Invalid option :( ");
+            }
+        } while (pokemonOrder < 1 || pokemonOrder > 2);
+        
+        
+        
         
         if (pokemonOrder == 2){
             Pokemon[] invertedPokemons = player1.getPokemons();
