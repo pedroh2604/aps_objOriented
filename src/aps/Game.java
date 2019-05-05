@@ -27,7 +27,7 @@ public class Game {
         // create pokemons 
         Pokemon raichu = PokemonFactory.createPokemon("raichu", Arrays.stream(moves).map(currentMove -> currentMove == null ? null : new Move(currentMove)).toArray(Move[]::new));
         Pokemon heliolisk = PokemonFactory.createPokemon("heliolisk", Arrays.stream(moves).map(currentMove -> currentMove == null ? null : new Move(currentMove)).toArray(Move[]::new));
-        Pokemon dartrix = PokemonFactory.createPokemon("dartrix ", Arrays.stream(moves).map(currentMove -> currentMove == null ? null : new Move(currentMove)).toArray(Move[]::new));
+        Pokemon dartrix = PokemonFactory.createPokemon("dartrix", Arrays.stream(moves).map(currentMove -> currentMove == null ? null : new Move(currentMove)).toArray(Move[]::new));
         Pokemon togekiss = PokemonFactory.createPokemon("togekiss", Arrays.stream(moves).map(currentMove -> currentMove == null ? null : new Move(currentMove)).toArray(Move[]::new));
         Pokemon quilladin = PokemonFactory.createPokemon("quilladin", Arrays.stream(moves).map(currentMove -> currentMove == null ? null : new Move(currentMove)).toArray(Move[]::new));
         Pokemon blastoise = PokemonFactory.createPokemon("blastoise", Arrays.stream(moves).map(currentMove -> currentMove == null ? null : new Move(currentMove)).toArray(Move[]::new));
@@ -88,9 +88,6 @@ public class Game {
                 System.out.println("Invalid option :( ");
             }
         } while (pokemonOrder < 1 || pokemonOrder > 2);
-        
-        
-        
         
         if (pokemonOrder == 2){
             Pokemon[] invertedPokemons = player1.getPokemons();

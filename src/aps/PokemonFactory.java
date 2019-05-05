@@ -20,7 +20,7 @@ public class PokemonFactory {
                 return new Pokemon(PokemonAndMoveTypes.ELECTRIC, "Heliolisk", 50, 162, 55, 52, 100, helioliskMoves);                
             case "dartrix":
                 Move[] dartrixMoves = {moves[0],moves[2],moves[3],moves[4]};
-                return new Pokemon(PokemonAndMoveTypes.FLYING, "Dartrix", 50, 178, 75, 75, 52, dartrixMoves);               
+                return new Pokemon(PokemonAndMoveTypes.FLYING, "Dartrix", 50, 178, 75, 75, 52, dartrixMoves);
             case "togekiss":
                 Move[] togekissMoves = {moves[0],moves[1],moves[3],moves[4]};
                 return new Pokemon(PokemonAndMoveTypes.FLYING, "Togekiss", 50, 185, 50, 95, 80, togekissMoves);                
