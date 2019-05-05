@@ -25,15 +25,15 @@ public class Game {
         Move[] moves = {leafStorm, magmaStorm, waterfall, shockWave, skyAttack};
         
         // create pokemons 
-        Pokemon raichu = PokemonFactory.createPokemon("raichu", moves);
-        Pokemon heliolisk = PokemonFactory.createPokemon("heliolisk", moves);
-        Pokemon dartrix = PokemonFactory.createPokemon("dartrix ", moves);
-        Pokemon togekiss = PokemonFactory.createPokemon("togekiss", moves);
-        Pokemon quilladin = PokemonFactory.createPokemon("quilladin", moves);
-        Pokemon blastoise = PokemonFactory.createPokemon("blastoise", moves);
-        Pokemon dewott = PokemonFactory.createPokemon("dewott", moves);
-        Pokemon litten = PokemonFactory.createPokemon("litten", moves);
-        Pokemon charizard = PokemonFactory.createPokemon("raichu", moves);
+        Pokemon raichu = PokemonFactory.createPokemon("raichu", moves.clone());
+        Pokemon heliolisk = PokemonFactory.createPokemon("heliolisk", moves.clone());
+        Pokemon dartrix = PokemonFactory.createPokemon("dartrix ", moves.clone());
+        Pokemon togekiss = PokemonFactory.createPokemon("togekiss", moves.clone());
+        Pokemon quilladin = PokemonFactory.createPokemon("quilladin", moves.clone());
+        Pokemon blastoise = PokemonFactory.createPokemon("blastoise", moves.clone());
+        Pokemon dewott = PokemonFactory.createPokemon("dewott", moves.clone());
+        Pokemon litten = PokemonFactory.createPokemon("litten", moves.clone());
+        Pokemon charizard = PokemonFactory.createPokemon("raichu", moves.clone());
         
         Pokemon[] pokemons = {raichu, heliolisk, dartrix, togekiss, quilladin, blastoise, dewott, litten, charizard}; 
         
